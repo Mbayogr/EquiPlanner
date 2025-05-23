@@ -112,7 +112,7 @@ $current = $_GET['page'] ?? 'home';
         <a href="index.php?page=home"class="<?= $current === 'home' ? 'active' : '' ?>">Accueil</a>
         <a href="index.php?page=resourceChoice"class="<?= $current === 'resourceChoice' ? 'active' : '' ?>">Réserver</a>
         <a href="index.php?page=history"class="<?= $current === 'history' ? 'active' : '' ?>">Mes réservations</a>
-        <a href="index.php?page=login">Déconnexion</a>
+        <a href="index.php?page=logout">Déconnexion</a>
     </nav>
 </header>
 <main>

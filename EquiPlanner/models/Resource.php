@@ -45,7 +45,6 @@ public function getAvailableResources($type, $date, $time) {
         ]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        // tu peux logguer l'erreur ici
         return [];
     }
 }

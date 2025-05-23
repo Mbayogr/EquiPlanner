@@ -134,7 +134,7 @@
         .modal {
   position: fixed; 
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* fond semi-transparent */
+  background-color: rgba(0,0,0,0.5); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -194,7 +194,7 @@ $current = $_GET['page'] ?? 'home';
         <a href="index.php?page=home"class="<?= $current === 'home' ? 'active' : '' ?>">Accueil</a>
         <a href="index.php?page=resourceChoice"class="<?= $current === 'resourceChoice' ? 'active' : '' ?>">Réserver</a>
         <a href="index.php?page=history"class="<?= $current === 'history' ? 'active' : '' ?>">Mes réservations</a>
-        <a href="index.php?page=login">Déconnexion</a>
+        <a href="index.php?page=logout">Déconnexion</a>
     </nav>
 </header>
 <main>
@@ -268,7 +268,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeBtn = document.getElementById('closeModalBtn');
     closeBtn.addEventListener('click', () => {
       modal.style.display = 'none';
-      // Optionnel : supprimer le paramètre success dans l'URL pour ne plus ré-afficher la modale au reload
       if (history.replaceState) {
         const url = new URL(window.location);
         url.searchParams.delete('success');

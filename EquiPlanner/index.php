@@ -1,20 +1,35 @@
 <?php
-session_start();  // Très important : démarrer la session TOUT EN HAUT
+/*session_start();
+echo 'Session : ' . ($_SESSION['user_id'] ?? 'non connectée') . '<br>';
+echo 'Page : ' . ($_GET['page'] ?? 'home') . '<br>';
+exit;*/
+session_start();  
 
 require_once __DIR__ . '/controllers/MainController.php';
 
 $controller = new MainController();
 
-// Récupérer le paramètre 'page' dans l'URL, ex: index.php?page=history
+// Récupérer la page demandée, ou "home" par défaut
 $page = $_GET['page'] ?? 'home';
 
-// En fonction de la page, appeler la méthode correspondante
+$protectedPages = ['home', 'resourceChoice', 'reserve', 'confirmReservation', 'history', 'cancelReservation'];
+
+if (in_array($page, $protectedPages) && !isset($_SESSION['user_id'])) {
+    header('Location: index.php?page=login');
+    exit;
+}
+
 switch ($page) {
     case 'login':
+            if (isset($_SESSION['user_id'])) {
+        
+        header('Location: index.php?page=home');
+        exit();
+    }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $controller->login();
+            $controller->login();  
         } else {
-            $controller->renderView('login');
+            $controller->showLoginForm();  
         }
         break;
 
@@ -31,7 +46,7 @@ switch ($page) {
             $controller->confirmReservation();
         } else {
             header('Location: index.php?page=resourceChoice');
-            exit;
+            exit();
         }
         break;
 
@@ -42,7 +57,11 @@ switch ($page) {
     case 'logout':
         session_destroy();
         header('Location: index.php?page=login');
-        exit;
+        exit();
+        break;
+
+    case 'cancelReservation':
+        $controller->cancelReservation();
         break;
 
     case 'home':
@@ -50,9 +69,8 @@ switch ($page) {
         $controller->renderView('home');
         break;
 
-    case 'cancelReservation':
-        require_once 'controllers/MainController.php';
-        $controller = new MainController();
-        $controller->cancelReservation();
+    case 'logout':
+        $controller->logout();
         break;
+
 }

@@ -51,9 +51,8 @@
             font-size: 1em;
         }
 
-        /* Modal styles */
         .modal {
-            display: block; /* affichée par défaut si erreur */
+            display: block; 
             position: fixed;
             z-index: 999;
             left: 0; top: 0;

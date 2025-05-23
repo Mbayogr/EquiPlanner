@@ -3,7 +3,7 @@
 class Database {
     public static function getConnection() {
         $host = 'localhost';
-        $dbname = 'db_equiplanner'; // À adapter
+        $dbname = 'db_equiplanner'; 
         $username = 'mbayogr';
         $password = 'M12345';
 

@@ -108,7 +108,7 @@ $current = $_GET['page'] ?? 'home';
         <a href="index.php?page=home" class="<?= $current === 'home' ? 'active' : '' ?>">Accueil</a>
         <a href="index.php?page=resourceChoice" class="<?= $current === 'resourceChoice' ? 'active' : '' ?>">Réserver</a>
         <a href="index.php?page=history" class="<?= $current === 'history' ? 'active' : '' ?>">Mes réservations</a>
-        <a href="index.php?page=login">Déconnexion</a>
+        <a href="index.php?page=logout">Déconnexion</a>
     </nav>
 </header>
 
@@ -169,7 +169,6 @@ $current = $_GET['page'] ?? 'home';
     <p>&copy; 2025 - EquiPlanner - Gregory Mbayo</p>
 </footer>
 
-<!-- ✅ SCRIPT pour masquer automatiquement le message de succès -->
 <script>
     setTimeout(() => {
         const msg = document.getElementById('success-message');
