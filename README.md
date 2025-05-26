@@ -28,8 +28,8 @@ Les ressources sont prédéfinies dans la base de données. Il n’existe **aucu
 ## 🚀 Installation
 
 1. **Cloner le dépôt** :
-   ```bash
-   git clone https://github.com/ton-utilisateur/EquiPlanner.git
+   
+   git clone https://github.com/Mbayogr/EquiPlanner.git
    cd EquiPlanner
 
     Importer la base de données :
