@@ -44,7 +44,7 @@ Les ressources sont prédéfinies dans la base de données. Il n’existe **aucu
 
 ▶️ Utilisation
 
-    Démarrer UwAmp.
+    Démarer UWamp
 
     Placer le projet dans le dossier www de UwAmp.
 
