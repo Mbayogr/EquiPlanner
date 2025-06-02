@@ -1,0 +1,93 @@
+<!--
+    ETML
+    auteur : Gregory Mbayo
+    Date : 02.05.25
+    Description :page modèle du site web Equiplanner permetant gérer les réservations des utilisateurs
+-->
+<?php class ReservationModel {
+    private $db;
+
+    // cette méthode permet la connexion à la base de données
+    public function __construct() {
+        require_once 'database.php';
+        $this->db = Database::getConnection();
+    }
+
+    // Cette méthode enregistre une nouvelle réservation dans la base de données.
+    public function createReservation($user_id, $resource_id, $date, $time) {
+        try {
+            $stmt = $this->db->prepare("INSERT INTO t_reservation (date_, hour_, resource_fk, user_fk, status) VALUES (:date, :time, :resource_id, :user_id, 'active')");
+            $stmt->execute([
+                'date' => $date,
+                'time' => $time,
+                'resource_id' => $resource_id,
+                'user_id' => $user_id
+            ]);
+        } catch (PDOException $e) {
+            echo "Erreur d'insertion : " . $e->getMessage();
+        }
+    }
+
+
+
+// cette méthode met à jour le statut des réservations "actives" qui sont expirées (passées d'au moins 1 heure).
+public function updateExpiredReservations() {
+    $db = Database::getConnection();
+    $datetimeThreshold = (new DateTime())->modify('-1 hour')->format('Y-m-d H:i:s');
+
+    $query = "SELECT reservation_id, resource_fk FROM t_reservation 
+              WHERE status = 'active' 
+              AND STR_TO_DATE(CONCAT(date_, ' ', hour_), '%Y-%m-%d %H:%i:%s') <= :threshold";
+
+    $stmt = $db->prepare($query);
+    $stmt->execute(['threshold' => $datetimeThreshold]);
+    $expiredReservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($expiredReservations as $res) {
+        $updateReservation = $db->prepare("UPDATE t_reservation SET status = 'terminée' WHERE reservation_id = :id");
+        $updateReservation->execute(['id' => $res['reservation_id']]);
+
+        $updateResource = $db->prepare("UPDATE t_resource SET available = 1 WHERE resource_id = :resource_id");
+        $updateResource->execute(['resource_id' => $res['resource_fk']]);
+    }
+}
+
+// cette méthode récupère toutes les réservations d'un utilisateur donné (l'utilisateur connecté), triées par date et heure décroissantes.
+public function getUserReservations($userId) {
+    try {
+        $stmt = $this->db->prepare("
+            SELECT r.*, t.name AS resource_name
+            FROM t_reservation r
+            JOIN t_resource t ON r.resource_fk = t.resource_id
+            WHERE r.user_fk = :user_id
+            ORDER BY r.date_ DESC, r.hour_ DESC
+        ");
+        $stmt->execute(['user_id' => $userId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        return [];
+    }
+}
+
+// cett méthode annule une réservation en modifiant son statut à 'annulée' et libère la ressource associée.
+public function cancelReservationById($reservationId) {
+    try {
+        $stmt = $this->db->prepare("UPDATE t_reservation SET status = 'annulée' WHERE reservation_id = :id");
+        $stmt->execute(['id' => $reservationId]);
+
+        $stmt2 = $this->db->prepare("
+            UPDATE t_resource 
+            SET available = 1 
+            WHERE resource_id = (
+                SELECT resource_fk FROM t_reservation WHERE reservation_id = :id
+            )
+        ");
+        $stmt2->execute(['id' => $reservationId]);
+
+    } catch (PDOException $e) {
+        echo "Erreur lors de l'annulation : " . $e->getMessage();
+    }
+}
+
+}
+?>
