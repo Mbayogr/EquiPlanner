@@ -14,6 +14,9 @@ Un club sportif souhaite mettre à disposition ses ressources (terrains ou équi
 Les ressources sont prédéfinies dans la base de données. Il n’existe **aucun espace administrateur** : seuls les membres peuvent consulter et réserver.
 
 ---
+## Document
+
+Rapport https://github.com/Mbayogr/EquiPlanner/blob/master/Document/Rapport/rapport.pdf
 
 ## 🛠️ Technologies utilisées
 
