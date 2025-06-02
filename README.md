@@ -50,7 +50,8 @@ Utilisation
 Démmarer Uwamp.<br>
 Placer le dossier EquiPlanner dans le dossier www de UwAmp.<br>
 Ouvrir votre navigateur et accéder à http://localhost/EquiPlanner.<br>
-Structure du projet<br>
+
+Structure du projet
 
 /EquiPlanner
 |<br>
