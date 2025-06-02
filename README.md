@@ -59,23 +59,23 @@ Ouvrir votre navigateur et accéder à http://localhost/EquiPlanner.
 Structure du projet
 
 /EquiPlanner
-|
-|----/controllers
-|	|-MainController.php
-|
-|----/models
-|	|-database.php
-|	|-reservation.php
-|	|-resource.php
-|
-|----/views
-|	|-login.php
-|	|-reserve.php
-|	|-history.php
-|	|-ressourceChoice.php
-|	|-home.php
-|
-|----index.php
+|<br>
+|----/controllers<br>
+|	|-MainController.php<br>
+|<br>
+|----/models<br>
+|	|-database.php<br>
+|	|-reservation.php<br>
+|	|-resource.php<br>
+|<br>
+|----/views<br>
+|	|-login.php<br>
+|	|-reserve.php<br>
+|	|-history.php<br>
+|	|-ressourceChoice.php<br>
+|	|-home.php<br>
+|<br>
+|----index.php<br>
 
 
 Aperçu
