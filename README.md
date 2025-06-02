@@ -4,7 +4,7 @@
 
 ---
 
-## 📌 Description
+##  Description
 
 Un club sportif souhaite mettre à disposition ses ressources (terrains ou équipements) aux membres. Ce projet vise à développer une application web simple, fonctionnelle et intuitive, permettant aux membres d’un club :
 
@@ -21,7 +21,7 @@ Les ressources sont prédéfinies dans la base de données. Il n’existe **aucu
 - Dossier du code : https://github.com/Mbayogr/EquiPlanner/tree/master/R%C3%A9alisation/EquiPlanner
 - Base de données : https://github.com/Mbayogr/EquiPlanner/blob/master/R%C3%A9alisation/EquiPlanner/db/db_equiplanner.sql
 
-## 🛠️ Technologies utilisées
+##  Technologies utilisées
 
 - PHP  
 - MySQL  
@@ -31,7 +31,7 @@ Les ressources sont prédéfinies dans la base de données. Il n’existe **aucu
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 1. **Cloner le dépôt** :
    
@@ -41,22 +41,17 @@ Les ressources sont prédéfinies dans la base de données. Il n’existe **aucu
     Importer la base de données :
 
         Lancer UwAmp.
-
         Accéder à phpMyAdmin.
-
         Créer une nouvelle base de données (par exemple db_equiplanner).
-
         Importer le fichier .sql fourni dans le dépôt.
 
-▶️ Utilisation
+Utilisation
 
     Démarer UWamp
-
     Placer le projet dans le dossier www de UwAmp.
-
     Ouvrir votre navigateur et accéder à : http://localhost/EquiPlanner
-
-📁 Structure du projet
+    
+Structure du projet
 
 /EquiPlanner
 |
@@ -77,8 +72,7 @@ Les ressources sont prédéfinies dans la base de données. Il n’existe **aucu
 |
 |---- index.php
 
-🖼️ Aperçu
-
+Aperçu
 
 
 
