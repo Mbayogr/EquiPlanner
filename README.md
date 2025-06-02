@@ -39,12 +39,15 @@ Les ressources sont prédéfinies dans la base de données. Il n’existe **aucu
    cd EquiPlanner
 
     Importer la base de données :
+   
    lancer UwAmp.
    
-        Lancer UwAmp.
-        Accéder à phpMyAdmin.
-        Créer une nouvelle base de données (par exemple db_equiplanner).
-        Importer le fichier .sql fourni dans le dépôt.
+   Accéder à phpmyAdmin.
+   
+   Créer une nouvelle base de données nommée db_equiplanner.
+   
+   importer le fichier .sql fournit dans le dépôt.
+
 
 Utilisation
 
