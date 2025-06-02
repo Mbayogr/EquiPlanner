@@ -61,21 +61,22 @@ Structure du projet
 /EquiPlanner
 |
 |----/controllers
-|     |- MainController.php
+|	|-MainController.php
 |
 |----/models
-|     |- database.php
-|     |- reservation.php
-|     |- resource.php
+|	|-database.php
+|	|-reservation.php
+|	|-resource.php
 |
 |----/views
-|     |- login.php
-|     |- reserve.php
-|     |- history.php
-|     |- ressourceChoice.php
-|     |- home.php
+|	|-login.php
+|	|-reserve.php
+|	|-history.php
+|	|-ressourceChoice.php
+|	|-home.php
 |
-|---- index.php
+|----index.php
+
 
 Aperçu
 
