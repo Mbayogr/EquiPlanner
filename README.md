@@ -50,11 +50,12 @@ Les ressources sont prédéfinies dans la base de données. Il n’existe **aucu
 
 
 Utilisation
+Démmarer Uwamp.
 
-    Démarer UWamp
-    Placer le projet dans le dossier www de UwAmp.
-    Ouvrir votre navigateur et accéder à : http://localhost/EquiPlanner
-    
+Placer le dossier EquiPlanner dans le dossier www de UwAmp.
+
+Ouvrir votre navigateur et accéder à http://localhost/EquiPlanner.
+
 Structure du projet
 
 /EquiPlanner
