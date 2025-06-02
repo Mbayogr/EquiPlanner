@@ -16,7 +16,11 @@ Les ressources sont prédéfinies dans la base de données. Il n’existe **aucu
 ---
 ## Document
 
-Rapport https://github.com/Mbayogr/EquiPlanner/blob/master/Document/Rapport/rapport.pdf
+Rapport : https://github.com/Mbayogr/EquiPlanner/blob/master/Document/Rapport/rapport.pdf
+Journal de travail : https://github.com/Mbayogr/EquiPlanner/blob/master/Document/PlannificationJDT/JDT.pdf
+
+Dossier du code : https://github.com/Mbayogr/EquiPlanner/tree/master/R%C3%A9alisation/EquiPlanner
+Base de données : https://github.com/Mbayogr/EquiPlanner/blob/master/R%C3%A9alisation/EquiPlanner/db/db_equiplanner.sql
 
 ## 🛠️ Technologies utilisées
 
